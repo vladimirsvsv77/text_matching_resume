@@ -103,3 +103,7 @@ for vac_number in range(11):
                 df.at[i,'vector_' + str(vac_number)] = get_similarity_euql(model, vacancy_text, df.at[i,'text'])
             except:
                 df.at[i,'vector_' + str(vac_number)] = 100
+
+writer = pd.ExcelWriter('sort_cands.xlsx')
+df.to_excel(writer, 'Sheet1')
+writer.save()
